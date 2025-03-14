@@ -1,3 +1,4 @@
+http://www.ligen.net/categories/index.html
 http://www.ligen.net/%E6%97%85%E8%A1%8C/
 http://www.ligen.net/%E6%8E%A2%E9%99%A9/
 http://www.ligen.net/%E6%B8%B8%E6%B3%B3%E5%8D%A1/
@@ -16,7 +17,6 @@ http://www.ligen.net/paper/index.html
 http://www.ligen.net/album.html
 http://www.ligen.net/search/index.html
 http://www.ligen.net/tags/index.html
-http://www.ligen.net/categories/index.html
 http://www.ligen.net/
 http://www.ligen.net/tags/Cool-Chen/
 http://www.ligen.net/tags/%E4%B9%98%E8%BD%A6/

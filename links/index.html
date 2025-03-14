@@ -19,7 +19,7 @@
   
   
   
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/images/footer-logo.png">
   
   <title>友情链接 [ Ligen Blog ]</title>
   
@@ -75,6 +75,18 @@
       
           
             
+              <li class="pure-menu-item"><a href="/paper" class="pure-menu-link">Papers</a></li>
+            
+          
+      
+          
+            
+              <li class="pure-menu-item"><a href="/project" class="pure-menu-link">项目</a></li>
+            
+          
+      
+          
+            
               <li class="pure-menu-item"><a href="/activity" class="pure-menu-link">动态</a></li>
             
           
@@ -103,8 +115,8 @@
   <div class="archives">
     
       <div class="archive">
-        <a class="post-go" target="_blank" style="color:#202020" href="http://www.ligen.net">
-          小宽博客&nbsp;&nbsp;<span class="date" style="text-transform:none;font-size:14px;">http://www.ligen.net</span>
+        <a class="post-go" target="_blank" style="color:#202020" href="https://www.fooying.com">
+          Fooying&nbsp;&nbsp;<span class="date" style="text-transform:none;font-size:14px;">https://www.fooying.com</span>
         </a>
       </div>
     
@@ -112,23 +124,20 @@
   </div>
 </section>
 
-    <div class="giscus" style="padding: 10px 50px"></div>
-    <script src="https://giscus.app/client.js"
-        data-repo="jiangligen/jiangligen.github.io"
-        data-repo-id="R_kgDOIrwwzw"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOIrwwz84CVATT"
-        data-mapping="title"
-        data-strict="1"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="https://cdn.jsdelivr.net/gh/fooying/hexo-theme-xoxo-plus@master/source/css/light_tritanopia_xoxo.min.css"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <div id="gitalk-container"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+            clientID: 'xxx',
+            clientSecret: 'xxx',
+            id: window.location.pathname,
+            repo: 'issue repo name',
+            owner: 'Github username',
+            admin: 'github username'
+        })
+        gitalk.render('gitalk-container')
     </script>
-
 
 
 
@@ -143,12 +152,13 @@
   </div>
   <footer class="footer text-center">
     <div id="bottom-inner">
-        © 2025 <a class="bottom-item" href="https://www.ligen.net" target="_blank">小宽博客</a> 
-        <a class="bottom-item" href="/atom.xml">订阅</a> 
-        <a class="bottom-item" href="https://hexo.io" target="_blank">由hexo强力驱动</a>
+        <a class="bottom-item" href="https://github.com/fooying" target="_blank">GitHub</a> |
+        <a class="bottom-item" href="/links">友情链接</a> |
+        <a class="bottom-item" href="https://hexo.io" target="_blank">Powered by hexo</a> |
+        <a class="bottom-item" href="https://github.com/fooying/hexo-theme-xoxo-plus" target="_blank">Theme xoxo-plus</a> |
+        <a class="bottom-item" href="/atom.xml">RSS</a>
     </div>
 </footer>
-
 
   
 

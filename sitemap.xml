@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.ligen.net/categories/index.html</loc>
+    
+    <lastmod>2025-03-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.ligen.net/%E6%97%85%E8%A1%8C/</loc>
     
     <lastmod>2025-03-07</lastmod>
@@ -156,15 +165,6 @@
   
   <url>
     <loc>http://www.ligen.net/tags/index.html</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.ligen.net/categories/index.html</loc>
     
     <lastmod>2022-12-28</lastmod>
     
