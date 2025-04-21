@@ -182,13 +182,6 @@
 
   
   <url>
-    <loc>http://www.ligen.net/tags/Cool-Chen/</loc>
-    <lastmod>2025-04-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://www.ligen.net/tags/%E4%B9%98%E8%BD%A6/</loc>
     <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -204,6 +197,13 @@
   
   <url>
     <loc>http://www.ligen.net/tags/%E5%8D%9A%E5%AE%A2%E6%90%AC%E5%AE%B6/</loc>
+    <lastmod>2025-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.ligen.net/tags/Cool-Chen/</loc>
     <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -296,14 +296,14 @@
 
   
   <url>
-    <loc>http://www.ligen.net/categories/%E5%8E%9F%E5%88%9B/</loc>
+    <loc>http://www.ligen.net/categories/%E8%AE%B0%E4%BA%8B/</loc>
     <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://www.ligen.net/categories/%E8%AE%B0%E4%BA%8B/</loc>
+    <loc>http://www.ligen.net/categories/%E5%8E%9F%E5%88%9B/</loc>
     <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
