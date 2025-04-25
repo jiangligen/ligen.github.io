@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.ligen.net/%E6%98%A5%E6%AD%A6%E9%87%8C%E7%9A%84%E5%82%8D%E6%99%9A/</loc>
+    
+    <lastmod>2025-04-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.ligen.net/%E8%91%A1%E8%90%84%E6%B2%9F/</loc>
     
     <lastmod>2025-04-25</lastmod>
@@ -48,15 +57,6 @@
   
   <url>
     <loc>http://www.ligen.net/%E5%8D%A2%E5%B0%8F%E5%88%9A/</loc>
-    
-    <lastmod>2025-04-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.ligen.net/%E6%98%A5%E6%AD%A6%E9%87%8C%E7%9A%84%E5%82%8D%E6%99%9A/</loc>
     
     <lastmod>2025-04-21</lastmod>
     
@@ -182,20 +182,6 @@
 
   
   <url>
-    <loc>http://www.ligen.net/tags/Cool-Chen/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.ligen.net/tags/%E5%8D%9A%E5%AE%A2%E6%90%AC%E5%AE%B6/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://www.ligen.net/tags/%E4%B9%98%E8%BD%A6/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -210,21 +196,21 @@
   </url>
   
   <url>
+    <loc>http://www.ligen.net/tags/Cool-Chen/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.ligen.net/tags/%E5%8D%9A%E5%AE%A2%E6%90%AC%E5%AE%B6/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://www.ligen.net/tags/%E5%8D%A2%E5%B0%8F%E5%88%9A/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.ligen.net/tags/%E5%B0%8F%E5%AD%A6/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.ligen.net/tags/%E5%8D%88%E9%A5%AD/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -245,7 +231,28 @@
   </url>
   
   <url>
+    <loc>http://www.ligen.net/tags/%E5%B0%8F%E5%AD%A6/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.ligen.net/tags/%E5%8D%88%E9%A5%AD/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://www.ligen.net/tags/%E6%97%85%E8%A1%8C/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.ligen.net/tags/%E6%B8%B8%E6%B3%B3%E5%8D%A1/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -260,13 +267,6 @@
   
   <url>
     <loc>http://www.ligen.net/tags/Thailand-Chonburi/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.ligen.net/tags/%E6%B8%B8%E6%B3%B3%E5%8D%A1/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -296,14 +296,14 @@
 
   
   <url>
-    <loc>http://www.ligen.net/categories/%E5%8E%9F%E5%88%9B/</loc>
+    <loc>http://www.ligen.net/categories/%E8%AE%B0%E4%BA%8B/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://www.ligen.net/categories/%E8%AE%B0%E4%BA%8B/</loc>
+    <loc>http://www.ligen.net/categories/%E5%8E%9F%E5%88%9B/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
