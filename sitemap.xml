@@ -189,6 +189,13 @@
   </url>
   
   <url>
+    <loc>http://www.ligen.net/tags/%E5%8D%9A%E5%AE%A2%E6%90%AC%E5%AE%B6/</loc>
+    <lastmod>2025-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://www.ligen.net/tags/%E4%B9%98%E8%BD%A6/</loc>
     <lastmod>2025-05-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -203,20 +210,6 @@
   </url>
   
   <url>
-    <loc>http://www.ligen.net/tags/%E5%8D%9A%E5%AE%A2%E6%90%AC%E5%AE%B6/</loc>
-    <lastmod>2025-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.ligen.net/tags/%E5%8D%A2%E5%B0%8F%E5%88%9A/</loc>
-    <lastmod>2025-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://www.ligen.net/tags/%E5%B0%8F%E5%AD%A6/</loc>
     <lastmod>2025-05-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -225,6 +218,13 @@
   
   <url>
     <loc>http://www.ligen.net/tags/%E5%8D%88%E9%A5%AD/</loc>
+    <lastmod>2025-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.ligen.net/tags/%E5%8D%A2%E5%B0%8F%E5%88%9A/</loc>
     <lastmod>2025-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
