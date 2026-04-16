@@ -219,6 +219,13 @@
   </url>
   
   <url>
+    <loc>http://blog.ligen.net/tags/%E5%8D%A2%E5%B0%8F%E5%88%9A/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.ligen.net/tags/%E5%B0%8F%E5%AD%A6/</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -276,13 +283,6 @@
   
   <url>
     <loc>http://blog.ligen.net/tags/%E7%94%9F%E5%AD%98%E6%84%8F%E4%B9%89/</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.ligen.net/tags/%E5%8D%A2%E5%B0%8F%E5%88%9A/</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
