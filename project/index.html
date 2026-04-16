@@ -109,52 +109,16 @@
   <div class="post-content">
     
         <section class="post page archives">
-  <h3 class="archive-year-wrap">项目</h3>
+  <h3 class="archive-year-wrap"><%= __('project')%></h3>
   <div class="archives">
-    
+    <% Object.keys(theme.projects).forEach(function(key) { %>
       <div class="archive">
-        <a class="post-go" target="_blank" style="color:#202020" href="https://mi.aliyun.com/domain-detail?domainCartTradeParams=dr_29379033_1776353036659&amp;domainName=shunshun.net&amp;orgType=&amp;productType=2&amp;_v_=47edc66742fe36fc0a839ea5700b8cd5">
-          shunshun.net<span class="slash">/</span><span class="date" style="text-transform:none;font-size:14px;">顺顺</span>
+        <a class="post-go" target="_blank" style="color:#202020" href="<%=theme.projects[key]['url']%>">
+          <%= key%><span class="slash">/</span><span class="date" style="text-transform:none;font-size:14px;"><%=theme.projects[key]['descript']%></span>
         </a>
       </div>
-    
-      <div class="archive">
-        <a class="post-go" target="_blank" style="color:#202020" href="https://mi.aliyun.com/domain-detail?domainCartTradeParams=dr_29379033_1776353036659&amp;domainName=xiaokuan.net&amp;orgType=&amp;productType=5&amp;_v_=47edc66742fe36fc0a839ea5700b8cd5">
-          xiaokuan.net<span class="slash">/</span><span class="date" style="text-transform:none;font-size:14px;">小宽、小款</span>
-        </a>
-      </div>
-    
-      <div class="archive">
-        <a class="post-go" target="_blank" style="color:#202020" href="https://sedo.com/search/?keyword=lianda">
-          lianda.org<span class="slash">/</span><span class="date" style="text-transform:none;font-size:14px;">联大、联达、利安达</span>
-        </a>
-      </div>
-    
-      <div class="archive">
-        <a class="post-go" target="_blank" style="color:#202020" href="https://sedo.com/search/?keyword=daxing">
-          daxing.org<span class="slash">/</span><span class="date" style="text-transform:none;font-size:14px;">大型、大兴、大星、大幸</span>
-        </a>
-      </div>
-    
-      <div class="archive">
-        <a class="post-go" target="_blank" style="color:#202020" href="https://mi.aliyun.com/domain-detail?domainCartTradeParams=dr_29379033_1776353036659&amp;domainName=hanhan.xyz&amp;orgType=&amp;productType=2&amp;_v_=47edc66742fe36fc0a839ea5700b8cd5">
-          hanhan.xyz<span class="slash">/</span><span class="date" style="text-transform:none;font-size:14px;">憨憨、韩寒</span>
-        </a>
-      </div>
-    
-      <div class="archive">
-        <a class="post-go" target="_blank" style="color:#202020" href="https://sedo.com/search/?keyword=jlg">
-          jlg.cc<span class="slash">/</span><span class="date" style="text-transform:none;font-size:14px;">JLG</span>
-        </a>
-      </div>
-    
-      <div class="archive">
-        <a class="post-go" target="_blank" style="color:#202020" href="https://mi.aliyun.com/domain-detail?domainCartTradeParams=dr_29379033_1776353036659&amp;domainName=urumqi.xyz&amp;orgType=&amp;productType=2&amp;_v_=47edc66742fe36fc0a839ea5700b8cd5">
-          urumqi.xyz<span class="slash">/</span><span class="date" style="text-transform:none;font-size:14px;">乌鲁木齐</span>
-        </a>
-      </div>
-    
-    <p style="color:#999;font-size:14px;margin-top: 30px;">以上域名平价转让，如有需求，请电子邮件联系：me@ligen.net（24小时内回复）</p>
+    <% }); %>
+    <p style="color:#999;font-size:14px;margin-top: 30px;">以上域名平价转让，可直接点击域名链接前往平台（阿里云或Sedo）购买，也可以电子邮件联系：me@ligen.net（24小时内回复）</p>
   </div>
 </section>
 
