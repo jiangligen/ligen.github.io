@@ -16,13 +16,13 @@
   
 
   
-    <meta name="description" content="相册站点优化" />
+    <meta name="description" content="Ligen Gallery图片优化及CDN加速" />
   
 
   
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   
-  <title>相册站点优化  Ligen Blog </title>
+  <title>Ligen Gallery图片优化及CDN加速  Ligen Blog </title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -107,7 +107,7 @@
   <article class="post" id="post">
     <header class="post-header text-center">
       <h1 class="title">
-        相册站点优化
+        Ligen Gallery图片优化及CDN加速
       </h1>
       <span>
         
@@ -127,11 +127,15 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 1 分钟</span>
+      <span class="read">阅读耗时 2 分钟</span>
     </header>
 
     <div class="post-content">
-      <p>在galler.ligen.net上线测试过程中，旧版本相册主题逐渐暴露出了不少问题：Google 字体阻塞渲染、首屏图片加载延时、图片体积过大、重复加载脚本等。为了提升访问体验，我对相册主题的底层架构与资源加载逻辑进行了深度重构。经过实测，优化后的网站在桌面端与移动端均达 90+ 高分。</p>
+      <p>在<a href="https://galler.ligen.net上线测试过程中，旧版本相册主题逐渐暴露出了不少问题：Google">https://galler.ligen.net上线测试过程中，旧版本相册主题逐渐暴露出了不少问题：Google</a> 字体阻塞渲染、首屏图片加载延时、图片体积过大、重复加载脚本等。为了提升访问体验，我对相册主题的底层架构与资源加载逻辑进行了深度重构。经过实测，优化后的网站在桌面端与移动端均达 90+ 高分。<br><img src="https://img.ligen.net/cdn-cgi/image/quality=100,format=auto/blog/mobile.png" /></p>
+<img src="https://img.ligen.net/cdn-cgi/image/quality=100,format=auto/blog/desktop.png" />
+
+
+
 <p>本次优化：<br>1.彻底消除渲染阻塞请求：消除关键CSS阻塞、图标库与字体非阻塞加载、替换google字体请求路径为国内CDN镜像源等。<br>2.通过预加载形式，智能调整网页资源加载优先级。<br>3.添加Cloudflare Image Resizing功能菜单，大幅缩减首页图片体积。<br>4.清理冗余资源。</p>
 
     </div>
