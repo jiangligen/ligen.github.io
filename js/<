@@ -1,0 +1,324 @@
+<?php
+/**
+ * Time前端基于Multiverse。
+ * @package Time
+ * @version 1.6.5 (Pristine High-Quality & Zero-Drift Edition)
+ * @link https://www.ligen.net
+ */
+
+$cdnType      = $this->options->cdn_type ?: 'cf';
+$rawDomain    = $this->options->raw_domain ?: 'img.ligen.net';
+$cdnDomain    = $this->options->cf_domain ?: 'img.ligen.net';
+$cfParams     = $this->options->cf_params ?: 'width=600,quality=80,format=auto';
+$cfFullParams = $this->options->cf_full_params ?: 'quality=80,format=auto';
+$isFullOn     = isset($this->options->cf_full_compress) && ($this->options->cf_full_compress == 'on');
+
+$blogUrl       = $this->options->blog_url ?: 'https://www.ligen.net';
+$copyrightText = $this->options->copyright_text ?: 'LIGEN.NET';
+$copyrightUrl  = $this->options->copyright_url ?: 'https://www.ligen.net';
+
+$rawAboutText  = $this->options->about_text ?: '未经许可，请勿转载。 如有侵权，请联系处理： me@ligen.net';
+$aboutText     = preg_replace_callback('/([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/', function($matches) {
+    $obscuredEmail = $matches[1] . '[at]' . $matches[2];
+    return '<a href="#" id="contact-link" style="border-bottom: none;"><span id="email-text">' . $obscuredEmail . '</span></a>';
+}, $rawAboutText);
+
+function processCdnImage($url, $cdnType, $rawDomain, $cdnDomain, $params) {
+    if (!$url || $cdnType === 'off' || empty($params)) {
+        return $url;
+    }
+
+    if (strpos($url, $rawDomain) !== false) {
+        $url = str_replace($rawDomain, $cdnDomain, $url);
+    }
+
+    switch ($cdnType) {
+        case 'cf':
+            return str_replace($cdnDomain . "/", $cdnDomain . "/cdn-cgi/image/{$params}/", $url);
+        
+        case 'aliyun':
+            $connector = (strpos($url, '?') !== false) ? '&' : '?';
+            return $url . $connector . 'x-oss-process=' . ltrim($params, '?');
+
+        case 'tencent':
+        case 'qiniu':
+            $connector = (strpos($url, '?') !== false) ? '&' : '?';
+            return $url . $connector . ltrim($params, '?');
+
+        default:
+            return $url;
+    }
+}
+
+$currentPage = max(1, (int)$this->_currentPage);
+$pageSize    = (int)($this->parameter->pageSize ?: 12);
+$totalPosts  = (int)$this->getTotal();
+$totalPages  = max(1, (int)ceil($totalPosts / $pageSize));
+
+$siteUrl   = rtrim($this->options->siteUrl, '/');
+$rewriteOn = isset($this->options->rewrite) && $this->options->rewrite == '1';
+
+if ($rewriteOn) {
+    $prevPageUrl = ($currentPage - 1 <= 1) ? $this->options->siteUrl : $siteUrl . '/page/' . ($currentPage - 1) . '/';
+    $nextPageUrl = $siteUrl . '/page/' . ($currentPage + 1) . '/';
+} else {
+    $baseUrl     = explode('?', $this->request->getRequestUrl())[0];
+    $baseUrl     = rtrim($baseUrl, '/');
+    $prevPageUrl = ($currentPage - 1 <= 1) ? $this->options->siteUrl : $baseUrl . '?page=' . ($currentPage - 1);
+    $nextPageUrl = $baseUrl . '?page=' . ($currentPage + 1);
+}
+?>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title><?php echo htmlspecialchars($this->options->IndexName(), ENT_QUOTES, 'UTF-8'); ?> <?php echo htmlspecialchars($this->options->Indexdict(), ENT_QUOTES, 'UTF-8'); ?></title>
+    <meta charset="<?php $this->options->charset(); ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <link rel="dns-prefetch" href="//<?php echo $cdnDomain; ?>">
+    <link rel="preconnect" href="https://<?php echo $cdnDomain; ?>" crossorigin>
+
+    <meta name="keywords" content="<?php echo htmlspecialchars($this->options->keywords(), ENT_QUOTES, 'UTF-8'); ?>"/>
+    <meta name="description" content="<?php echo htmlspecialchars($this->options->description(), ENT_QUOTES, 'UTF-8'); ?>"/>
+    
+    <!-- 关键排版样式：原生同步加载，保障零抖动与极佳首屏构建 -->
+    <link rel="preload" href="<?php $this->options->themeUrl('assets/css/main.css'); ?>" as="style">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/main.css'); ?>">
+    
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/fontawesome-all.min.css'); ?>" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/fontawesome-all.min.css'); ?>"></noscript>
+
+    <link rel="icon" href="<?php $this->options->themeUrl('favicon.svg'); ?>" type="image/svg+xml" />
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php $this->options->themeUrl('apple-touch-icon.png'); ?>" />
+    <noscript><link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/noscript.css'); ?>"></noscript>
+</head>
+<body class="is-preload">
+    <header id="header">
+        <h1>
+            <a href="<?php $this->options->siteUrl(); ?>">
+                <strong><?php echo htmlspecialchars($this->options->zmkiabout(), ENT_QUOTES, 'UTF-8'); ?></strong> <?php echo htmlspecialchars($this->options->zmkiabouts(), ENT_QUOTES, 'UTF-8'); ?>
+            </a>
+        </h1>
+        <nav>
+            <ul>
+                <li>
+                    <a type="button" id="fullscreen" class="btn btn-default visible-lg visible-md">
+                        <svg class="icon-zmki zmki_dh zmki_wap" aria-hidden="true">
+                            <use xlink:href="#icon-zmki-ziyuan-copy"></use>
+                        </svg>
+                    </a>
+                </li>
+                
+                <li><a href="javascript:void(0);" onclick="window.open('<?php echo htmlspecialchars($blogUrl, ENT_QUOTES, 'UTF-8'); ?>', '_blank', 'noopener,noreferrer');" class="icon solid fa-blog">博客</a></li>
+                
+                <li><a href="#footer" class="icon solid fa-info-circle">关于</a></li>
+
+                <?php if ($currentPage > 1): ?>
+                    <li class="nav-page-btn">
+                        <a href="<?php echo htmlspecialchars($prevPageUrl, ENT_QUOTES, 'UTF-8'); ?>" class="icon solid fa-chevron-left" title="上一页">&#8203;</a>
+                    </li>
+                <?php endif; ?>
+                
+                <?php if ($currentPage < $totalPages): ?>
+                    <li class="nav-page-btn">
+                        <a href="<?php echo htmlspecialchars($nextPageUrl, ENT_QUOTES, 'UTF-8'); ?>" class="icon solid fa-chevron-right" title="下一页">&#8203;</a>
+                    </li>
+                <?php endif; ?>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="wrapper">
+        <div id="main">
+            <?php $count = 0; while ($this->next()): $count++; ?>
+            <article class="thumb img-area">
+                <?php 
+                    $rawImg = ($this->fields->img) ? $this->fields->img : $this->options->themeUrl . '/assets/img/default.jpg';
+                    
+                    $thumbImg = processCdnImage($rawImg, $cdnType, $rawDomain, $cdnDomain, $cfParams);
+                    $fullImg  = $isFullOn ? processCdnImage($rawImg, $cdnType, $rawDomain, $cdnDomain, $cfFullParams) : str_replace($rawDomain, $cdnDomain, $rawImg);
+                ?>
+                
+                <a class="image my-photo" href="<?php echo htmlspecialchars($fullImg, ENT_QUOTES, 'UTF-8'); ?>">
+                    <img class="zmki_px my-photo <?php echo ($count > 2) ? 'is-loading' : ''; ?>" 
+                         decoding="async"
+                         <?php if($count === 1): ?>
+                         src="<?php echo htmlspecialchars($thumbImg, ENT_QUOTES, 'UTF-8'); ?>"
+                         loading="eager"
+                         fetchpriority="high"
+                         <?php elseif($count === 2): ?>
+                         src="<?php echo htmlspecialchars($thumbImg, ENT_QUOTES, 'UTF-8'); ?>"
+                         loading="eager"
+                         <?php else: ?>
+                         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                         data-src="<?php echo htmlspecialchars($thumbImg, ENT_QUOTES, 'UTF-8'); ?>" 
+                         loading="lazy"
+                         <?php endif; ?>
+                         <?php if($count === 1): ?>onload="document.body.classList.remove('is-preload');"<?php endif; ?>
+                         alt="<?php echo htmlspecialchars($this->title, ENT_QUOTES, 'UTF-8'); ?>" 
+                         onerror="this.src='<?php $this->options->themeUrl('assets/img/20200212-fcf30f3d33625.gif'); ?>';this.onerror=null" />
+                </a>
+                <h2><?php $this->title(); ?></h2>
+                <p><?php $this->content(); ?></p>
+            </article>
+            <?php endwhile; ?>
+        </div>
+    </div>
+
+    <footer id="footer" class="panel">
+        <div class="inner split">
+            <div>
+                <section>
+                    <h2>关于<?php echo htmlspecialchars($this->options->IndexName(), ENT_QUOTES, 'UTF-8'); ?></h2>
+                    <p><?php echo htmlspecialchars($this->options->Biglogo(), ENT_QUOTES, 'UTF-8'); ?></p>
+                </section>
+                <section>
+                    <h2>隐私保护</h2>
+                    <?php echo $aboutText; ?>
+                </section>
+                <p class="copyright">&copy; <?php echo date("Y"); ?> <a href="<?php echo htmlspecialchars($copyrightUrl, ENT_QUOTES, 'UTF-8'); ?>" target="_blank"><span class="art-logo"><?php echo htmlspecialchars($copyrightText, ENT_QUOTES, 'UTF-8'); ?></span></a></p>
+            </div>
+            <div>
+                <section>
+                    <h2>站内送信</h2>
+                   <form method="post" action="<?php $this->options->themeUrl('send-mail.php'); ?>">
+                        <div class="fields">
+                            <div style="display:none !important;" aria-hidden="true">
+                                <input type="text" name="website_hp" tabindex="-1" autocomplete="off" />
+                            </div>
+
+                            <div class="field half">
+                                <input type="text" name="name" id="name" placeholder="Name" required />
+                            </div>
+                            <div class="field half">
+                                <input type="email" name="email" id="email" placeholder="Email" required />
+                            </div>
+                            <div class="field">
+                                <textarea name="message" id="message" rows="4" placeholder="Message" required></textarea>
+                            </div>
+                        </div>
+                        <ul class="actions">
+                            <li><input type="submit" value="发送" class="primary" /></li>
+                            <li><input type="reset" value="重置" /></li>
+                        </ul>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() { document.body.classList.remove('is-preload'); }, 1500);
+
+        var lazyImgs = document.querySelectorAll('img[data-src]');
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var img = entry.target;
+                        if (img.dataset.src) {
+                            var realSrc = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            
+                            var tempImg = new Image();
+                            tempImg.onload = function() {
+                                img.src = realSrc;
+                                img.classList.remove('is-loading');
+                            };
+                            tempImg.src = realSrc;
+                        }
+                        observer.unobserve(img);
+                    }
+                });
+            }, { 
+                rootMargin: '300px 0px', 
+                threshold: 0.01 
+            });
+            
+            for (var i = 0, len = lazyImgs.length; i < len; i++) {
+                observer.observe(lazyImgs[i]);
+            }
+        } else {
+            for (var i = 0, len = lazyImgs.length; i < len; i++) {
+                lazyImgs[i].src = lazyImgs[i].dataset.src;
+                lazyImgs[i].removeAttribute('data-src');
+                lazyImgs[i].classList.remove('is-loading');
+            }
+        }
+
+        var emailLink = document.getElementById('contact-link');
+        if (emailLink) {
+            emailLink.addEventListener('mouseenter', function() {
+                var emailSpan = document.getElementById('email-text');
+                if (!emailSpan) return;
+
+                var rawText = emailSpan.textContent.trim();
+                var cleanEmail = rawText.replace(/\s*[\(\[\{#]?at[\)\]\}#]?\s*/gi, '@');
+
+                this.href = 'mailto:' + cleanEmail;
+                emailSpan.textContent = cleanEmail;
+            }, {once: true});
+        }
+
+        var contactForm = document.querySelector('#footer form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                var submitBtn = contactForm.querySelector('input[type="submit"]');
+                var originalVal = submitBtn ? submitBtn.value : 'SEND';
+                var formAction = contactForm.getAttribute('action');
+
+                if (!formAction || formAction === '#' || formAction.trim() === '') {
+                    alert('请先配置接收邮件的接口链接！');
+                    return false;
+                }
+
+                if (submitBtn) {
+                    submitBtn.value = 'SENDING...';
+                    submitBtn.disabled = true;
+                }
+
+                var formData = new FormData(contactForm);
+
+                fetch(formAction, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(function(response) {
+                    if (response.ok) {
+                        alert('留言已成功发送，感谢您的联系！');
+                        contactForm.reset();
+                    } else {
+                        alert('发送失败，请稍后再试或通过邮箱联系：me@ligen.net');
+                    }
+                })
+                .catch(function(error) {
+                    alert('网络连接错误，无法完成发送。');
+                })
+                .finally(function() {
+                    if (submitBtn) {
+                        submitBtn.value = originalVal;
+                        submitBtn.disabled = false;
+                    }
+                });
+
+                return false;
+            });
+        }
+    });
+    </script>
+
+    <script src="<?php $this->options->themeUrl('assets/font_1635479_m8o2ir6mitf.js'); ?>" defer></script>
+    <script src="<?php $this->options->themeUrl('assets/js/jquery.min.js'); ?>" defer></script>
+    <script src="<?php $this->options->themeUrl('assets/js/util.js'); ?>" defer></script>
+    <script src="<?php $this->options->themeUrl('assets/js/jquery.poptrox.min.js'); ?>" defer></script>
+    <script src="<?php $this->options->themeUrl('assets/js/browser.min.js'); ?>" defer></script>
+    <script src="<?php $this->options->themeUrl('assets/js/breakpoints.min.js'); ?>" defer></script>
+    <script src="<?php $this->options->themeUrl('assets/js/main.js'); ?>" defer></script>
+</body>
+</html>
